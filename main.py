@@ -29,20 +29,24 @@ def load_file():
 def delete_file():
     print('enter file name what you want to remove \n')
     file_name = input()
-    os.remove("D:/files_for_python/" + file_name + ".txt")
-    print('plan ' + file_name + ' was removed')
+    try:
+        os.remove("D:/files_for_python/" + file_name + ".txt")
+        print('plan ' + file_name + ' was removed')
+    except:
+        print('you entered invalid file name')
 
 
 print('hi, click "c" if you want to create new plan, click "s" if you want to see existed or "r" if you want to remove plan \n ')
 
 first_check = input()
 
-match first_check:
-    case 'c':
-         create_file()
-    case 's':
-        load_file()
-    case 'r':
-        delete_file()
+try:
+    match first_check:
+        case 'c':
+            create_file()
+        case 's':
+            load_file()
+        case 'r':
+            delete_file()
 
 
